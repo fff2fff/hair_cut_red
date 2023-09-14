@@ -1,0 +1,557 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: auto;
+    padding-top: 80px;
+    font-family: 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* ヘッダー */
+.header {
+    background: #ffffff;
+    width: 100%;
+    height: 80px;
+    display: flex;/* 上を基準にlogoがずれた */
+    justify-content: space-between;
+    position: fixed;
+    top: 0;/*top 0　を記述するとうまくいった*/
+    z-index: 1;
+    /*box-shadow: 0 3px 3px rgb(201, 201, 201);*/
+}
+.logo {/*修正予定*/
+    margin-top: 5px;
+    margin-left: 40px;
+}
+.main-nav {
+    display: flex;
+    margin-top: 35px;
+}
+.main-nav li {
+    margin-right: 50px;
+    list-style: none;
+    font-family: 'Trebuchet MS';
+}
+.main-nav a {
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+/** 下線を左から引く **/
+a:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 0;
+    height: 1.5px; /*下線の太さ*/
+    background-color: red; /*下線の色*/
+    transition: .3s; /*アニメーション速度*/
+}
+.main-nav a:hover:after {
+    width: 100%;
+}
+.main-nav a:hover {
+    color: red;
+    transition: .3s;
+}
+
+/* フッター */
+footer {
+    background: #333;
+    text-align: center;
+    padding: 26px 0;
+    margin-top: 150px;
+}
+footer p {
+    color: rgb(255, 255, 255);}
+
+
+/*---------- アップスクロールボタン ----------*/
+html {
+	scroll-behavior: smooth;
+}
+
+.return_top {
+	background: #fff;
+	color: black;
+	text-decoration: none;
+	position: fixed;
+	right: 20px;
+	bottom: 30px;
+	width: 40px;
+	height: 40px;
+	border: solid thin;
+	border-radius: 50%;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	transform: rotate(-90deg);
+	transition: .4s;
+	/*普段は隠しておく*/
+	opacity: 0;
+	visibility: hidden;
+   }
+   .return_top.active {
+	/*activeが付いたら表示*/
+	opacity: 1;
+	visibility: visible;
+   }
+
+
+
+/* ---------- HOME ---------- */    
+/* 画像が切り替わる */
+.mv {
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+.item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: img-change 15s infinite;
+    opacity: 0;
+}
+.item:nth-child(1) {
+    animation-delay: 0s;
+}
+.item:nth-child(2) {
+    animation-delay: 5s;
+}
+.item:nth-child(3) {
+    animation-delay: 10s;
+}
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@keyframes img-change {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+
+/* アーティクル 紹介 */
+.contents {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 20px;
+}
+.box_1 {
+    display: flex;
+}
+.box_1 .text-box {
+    padding: 0 0 0 30px;
+}
+.box_1 a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding: 10px;
+}
+.box_2 {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 150px;
+}
+.box_2 .text-box {
+    padding: 0 30px 0 0;
+}
+.box_2 a {
+        display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding: 10px;
+}
+.box_3 {
+    display: flex;
+    margin-top: 150px;
+}
+.box_3 .text-box {
+    padding: 0 0 0 30px;
+}
+.box_3 a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding: 10px;
+}
+.box_4 {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 150px;
+}
+.box_4 .text-box {
+    padding: 0 30px 0 0;
+}
+.box_4 a {
+        display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding: 10px;
+}
+.img-box img {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    &::before {
+        content: "";
+        padding-top: 100%;
+        display: block;
+    }
+}
+.text-box {
+    width: 400px;
+}
+
+/*
+contact 予約
+*/
+.contact {
+    width: 100vw;
+    height: 300px;
+    background: gray;
+    margin-top: 50px;
+}
+.contact_box {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.contact_box h2 {
+    margin: 20px 0 0 0;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+}
+.contact_box h3 {
+    color: #fff;
+    text-align: center;
+}
+.tel {
+    width: 400px;
+    height: 50px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background: red;
+    margin: 40px auto 0 auto;
+    text-align: center;
+}
+.tel h4 {    
+    color: #ffffff;
+}
+.tel p {    
+    color: #ffffff;
+}
+.hpb {
+    width: 400px;
+    height: 50px;
+    margin: 30px auto 0 auto;
+}
+.hpb a {
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    background: #e95aff;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    user-select: none;
+}
+.hpb a:hover {
+    background: #fff;
+    color: #e95aff;
+    transition: .5s;
+}
+
+
+
+
+/* ---------- concept ---------- */
+.main {
+    margin: 50px 20px 0 20px;
+}
+.main h2 {
+    border-bottom: 2px solid red;
+    width: 800px; /* 追加 */
+    margin: 0 auto; /* 追加 */
+}
+.main .concept_img {
+    margin: 40px 0 0 0;
+    text-align: center;
+}
+.main .concept_img img {
+    width: 800px;
+}
+.main h3 {
+    margin: 40px 0 30px 0;
+    padding-left: 10px;
+    border-left: 1px solid red;
+}
+.main p {
+    line-height: 200%;
+    font-size: 0.9rem;
+}
+.color_red {
+    color: red;
+}
+.color_black {
+    color: black;
+    font-weight: 600;
+}
+.read02 {
+    font-weight: 600;   
+}
+.read02 .main_point01 {
+    color: red;
+}
+.concept01 {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.concept02 {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+
+/* ---------- menu ---------- */
+/* menu_head */
+.menu_head {
+    margin: 50px 20px 0 20px;
+}
+.menu_head h2{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-bottom: 2px solid red;
+}
+.hair_length {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+.hair_length img {
+    width: 100%;
+    max-width: 350px;
+}
+.hair_length p {
+    width: 100%;
+    max-width: 450px;
+    padding-left: 20px;
+    line-height: 200%;
+}
+
+/* menu_body */ /* dlのなかのdt dd を直す予定 */
+.menu_body {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.menu_body h2 {
+    background: #333;
+    color: #fff;
+    border-left: 1px solid red;
+    margin: 50px 20px 0 20px;
+    padding-left: 10px;
+    font-weight: 300;
+    font-size: 18px;
+}
+.menu_body h2 span {
+    font-weight: 600;
+    font-size: 20px;
+}
+.menu_body dl {
+    line-height: 2em;
+    font-size: 108%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 20px 20px 20px 20px;
+}
+.menu_body dt {
+    float: left;
+    width: 450px;
+    padding-left: 20px;
+}
+.menu_body dd {
+    text-align: right;
+    border-bottom: 1px dashed #ff8a8a;
+    padding-right: 20px;
+    margin-left: 0; /* 謎の余白がなくなった */
+}
+
+
+/*---------- salon_stylist ----------*/
+/* salon */
+.salon_stylist_body {
+    margin: 50px 20px 0 20px;
+}
+.salon {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.salon h2 {
+    border-bottom: 2px solid red;
+}
+.salon h3 {
+    padding: 20px;
+}
+.salon dl {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    line-height: 180%;
+    padding: 0 20px;
+}
+/* widthを合計90%にするとおさまった */
+.salon dt {
+    width: 15%;
+}
+.salon dd {
+    width: 75%;
+}
+
+/* google map */
+.google_map {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+.google_map .map_img {
+    text-align: center;
+}
+
+/* stylist */
+.stylist {
+    margin: 50px 20px 0 20px;
+}
+.stylist h2 {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    border-bottom: 2px solid red;
+}
+.stylist01 {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin:  40px auto 0 auto;
+}
+.stylist .prof {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: small;
+}
+.stylist .prof span {
+    font-size: medium;
+}
+.prof h4 {
+    padding: 4px;
+}
+.stylist_text {
+    margin-top: 40px;
+    line-height: 180%;
+}
+
+
+
+/* ----------- advice ---------- */
+/* advice_head */
+.advice {
+    margin: 50px 20px 0 20px;
+}
+.advice_head {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.advice_head_box {
+    margin: 20px 0 0 0;
+    padding: 0 20px;
+}
+.advice_head_box h4 {
+    padding: 20px;
+}
+.advice_head h2 {
+    border-bottom: 2px solid red;
+}
+.advice .intro {
+    display: flex;
+}
+.advice .img_sample {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* advice_body */
+.advice_body {
+    width: 100%;
+    max-width: 800px;
+    margin: 100px auto 0 auto;
+}
+.advice_body .coment_box {
+    padding: 0 20px;
+}
+.advice_body .coment {
+    margin-top: 30px;
+    border: 1px dotted red;
+    padding:  0 10px;
+    font-size: 0.9rem;
+}
+
